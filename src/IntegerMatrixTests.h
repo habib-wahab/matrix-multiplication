@@ -8,8 +8,7 @@
 
 class IntegerMatrixTests {
 public:
-    IntegerMatrixTests(const std::vector<size_t>& matrix_sizes)
-        : matrix_sizes_(matrix_sizes) {}
+    explicit IntegerMatrixTests(const std::vector<size_t>& matrix_sizes) : matrix_sizes_(matrix_sizes) {}
     void RunTests()
     {
         for (const auto& size : matrix_sizes_)
@@ -20,12 +19,8 @@ public:
         srand(static_cast<unsigned>(time(NULL)));
         std::vector<std::vector<int>> vec(size, std::vector<int>(size));
         for (size_t i = 0; i < size; i++)
-        {
             for (size_t j = 0; j < size; j++)
-            {
                 vec[i][j] = 1 + rand() % 100;
-            }
-        }
         return vec;
     }
 private:
@@ -47,7 +42,6 @@ private:
             par_time = timer.ElapsedTime();
         }
         double speedup = static_cast<double>(seq_time) / par_time;
-        double efficiency = speedup / size;
         std::cout << "Speedup: " << speedup << std::endl;
         std::cout << "--------------------------------------" << std::endl;
     }

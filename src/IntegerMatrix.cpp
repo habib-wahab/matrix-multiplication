@@ -3,7 +3,7 @@
 #include <chrono>
 #include <iostream>
 
-IntegerMatrix::IntegerMatrix(size_t rows, size_t columns) : rows_(rows), columns_(columns)
+IntegerMatrix::IntegerMatrix(const size_t rows, const size_t columns) : rows_(rows), columns_(columns)
 {
     values_.resize(rows, std::vector<int>(columns));
 }
@@ -14,18 +14,14 @@ IntegerMatrix::IntegerMatrix(const std::vector<std::vector<int>>& values) : valu
     columns_ = values.at(0).size();
 }
 
-IntegerMatrix::IntegerMatrix(size_t rows, size_t columns, const std::vector<int>& values) :
+IntegerMatrix::IntegerMatrix(const size_t rows, const size_t columns, const std::vector<int>& values) :
     rows_(rows),
     columns_(columns),
     values_(rows, std::vector<int>(columns))
 {
     for (size_t i = 0, idx = 0; i < rows; i++)
-    {
         for (size_t j = 0; j < columns; j++)
-        {
             values_[i][j] = values[idx++];
-        }
-    }
 }
 
 IntegerMatrix IntegerMatrix::SequentialMatrixMultiplication(const IntegerMatrix& m)
@@ -37,9 +33,7 @@ IntegerMatrix IntegerMatrix::SequentialMatrixMultiplication(const IntegerMatrix&
         {
             new_matrix.values_[i][j] = 0;
             for (size_t k = 0; k < columns_; k++)
-            {
                 new_matrix.values_[i][j] += values_[i][k] * m.values_[k][j];
-            }
         }
     }
     return new_matrix;
@@ -67,9 +61,7 @@ void IntegerMatrix::Print() const
     for (const auto& row : values_)
     {
         for (const auto& value : row)
-        {
             std::cout << value << ' ';
-        }
         std::cout << '\n';
     }
 }

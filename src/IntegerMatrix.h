@@ -7,9 +7,9 @@ class IntegerMatrix
 {
 public:
     IntegerMatrix() = delete;
-    IntegerMatrix(size_t rows, size_t columns);
+    IntegerMatrix(const size_t rows, const size_t columns);
     IntegerMatrix(const std::vector<std::vector<int>>& values);
-    IntegerMatrix(size_t rows, size_t columns, const std::vector<int>& values);
+    IntegerMatrix(const size_t rows, const size_t columns, const std::vector<int>& values);
     IntegerMatrix SequentialMatrixMultiplication(const IntegerMatrix& m);
     IntegerMatrix ParallelMatrixMultiplication(const IntegerMatrix& m);
     void Print() const;
