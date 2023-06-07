@@ -32,13 +32,13 @@ private:
         // Sequential matrix multiplication
         {
             Timer timer("Sequential");
-            auto x = lhs.SequentialMatrixMultiplication(rhs);
+            auto sequentially_multiplied_matrix = lhs.SequentialMatrixMultiplication(rhs);
             seq_time = timer.ElapsedTime();
         }
         // Parallel matrix multiplication
         {
             Timer timer("Parallel");
-            auto y = lhs.ParallelMatrixMultiplication(rhs);
+            auto parallely_multiplied_matrix = lhs.ParallelMatrixMultiplication(rhs);
             par_time = timer.ElapsedTime();
         }
         double speedup = static_cast<double>(seq_time) / par_time;
