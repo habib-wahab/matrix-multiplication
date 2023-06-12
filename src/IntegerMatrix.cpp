@@ -28,14 +28,12 @@ IntegerMatrix IntegerMatrix::SequentialMatrixMultiplication(const IntegerMatrix&
 {
     IntegerMatrix new_matrix(rows_, m.columns_);
     for (size_t i = 0; i < rows_; i++)
-    {
         for (size_t j = 0; j < m.columns_; j++)
         {
             new_matrix.values_[i][j] = 0;
             for (size_t k = 0; k < columns_; k++)
                 new_matrix.values_[i][j] += values_[i][k] * m.values_[k][j];
         }
-    }
     return new_matrix;
 }
 
