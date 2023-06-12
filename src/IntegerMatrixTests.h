@@ -29,13 +29,11 @@ private:
         IntegerMatrix lhs(BuildVector(size));
         IntegerMatrix rhs(BuildVector(size));
         size_t seq_time, par_time;
-        // Sequential matrix multiplication
         {
             Timer timer("Sequential");
             auto sequentially_multiplied_matrix = lhs.SequentialMatrixMultiplication(rhs);
             seq_time = timer.ElapsedTime();
         }
-        // Parallel matrix multiplication
         {
             Timer timer("Parallel");
             auto parallely_multiplied_matrix = lhs.ParallelMatrixMultiplication(rhs);
