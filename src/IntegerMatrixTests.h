@@ -6,8 +6,6 @@
 #include <chrono>
 #include "Timer.h"
 
-// Define tests for the integer matrix class
-
 class IntegerMatrixTests {
 public:
     explicit IntegerMatrixTests(const std::vector<size_t>& matrix_sizes) : matrix_sizes_(matrix_sizes) {}
