@@ -4,8 +4,6 @@
 #include <iostream>
 #include <string>
 
-// timer used to check elapsed time for sequential / parallel multiplication
-
 class Timer
 {
 public:
